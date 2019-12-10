@@ -7,28 +7,35 @@
 
 #include "OI.h"
 
-#include <frc/WPILib.h>
+#include "commands/IntakeCommand/Release.h"
+#include "commands/IntakeCommand/Up.h"
+#include "commands/IntakeCommand/Down.h"
+#include "commands/IntakeCommand/Collect.h"
 
-#define MIAO(val, min, max) \
-    ((val) = ((val) > (min) ? (val) : ((val) = (min))) < (max) ? (val) : (max))
+#include "commands/ElevatorCommand/Up.h"
+#include "commands/ElevatorCommand/Down.h"
+#include "commands/ElevatorCommand/SetPoint.h"
 
-static int level = 0;
+#include "commands/CatcherCommand/Collect.h"
+#include "commands/CatcherCommand/Release.h"
+#include "commands/CatcherCommand/ComprosserSetPosition.h"
 
 OI::OI() {
-    m_eleUp.WhenPressed(new ElevatorUp{});
-    m_eleDown.WhenPressed(new ElevatorDown{});
-    m_eleSetPointUp.WhenPressed(new ElevatorSetPoint{MIAO(++level, 0, 2)});
-    m_eleSetPointDown.WhenPressed(new ElevatorSetPoint{MIAO(--level, 0, 2)});
+    m_eleUp.WhenPressed(new ElevatorUp());
+    m_eleDown.WhenPressed(new ElevatorDown());
+    m_eleSetPointUp.WhenPressed(new ElevatorSetPoint(2));
+    m_eleSetPointDown.WhenPressed(new ElevatorSetPoint(2));
 
-    m_intakeOpen.WhenPressed(new IntakeCollect{});
-    m_intakeClose.WhenPressed(new IntakeRelease{});
-    m_intakeUp.WhenPressed(new IntakeUp{});
-    m_intakeDown.WhenPressed(new IntakeDown{});
+    m_intakeOpen.WhenPressed(new IntakeCollect());
+    m_intakeClose.WhenPressed(new IntakeRelease());
+    m_intakeUp.WhenPressed(new IntakeUp());
+    m_intakeDown.WhenPressed(new IntakeDown());
 
-    m_catherOpen.WhenPressed(new CatcherCollect{});
-    m_catherClose.WhenPressed(new CatcherRelease{});
+    m_catherOpen.WhenPressed(new CatcherCollect());
+    m_catherClose.WhenPressed(new CatcherRelease());
 
-    m_comprosserOpen.WhenPressed(new ComprosserSetPosition{});
+    m_comprosserOpen.WhenPressed(new ComprosserSetPosition());
+    
 }
 
 frc::Joystick& OI::GetJoystickA() {

@@ -21,11 +21,11 @@
 
 class Robot : public frc::TimedRobot {
    public:
-    static OI m_oi;
     static Catcher catcher;
     static Chassis chassis;
     static Elevator elevator;
     static Intake intake;
+    static OI m_oi;
 
    private:
     void RobotInit() override;
