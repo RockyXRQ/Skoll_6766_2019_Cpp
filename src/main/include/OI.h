@@ -13,10 +13,13 @@
 class OI {
    public:
     OI();
-    
+
     frc::Joystick& GetJoystickA();
     frc::Joystick& GetJoystickB();
-    
+
+    int GetLevel(int);
+
+   private:
     frc::Joystick m_joystickA{0};
     frc::Joystick m_joystickB{1};
 

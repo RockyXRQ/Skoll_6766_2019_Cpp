@@ -23,8 +23,8 @@
 OI::OI() {
     m_eleUp.WhenPressed(new ElevatorUp());
     m_eleDown.WhenPressed(new ElevatorDown());
-    m_eleSetPointUp.WhenPressed(new ElevatorSetPoint(2));
-    m_eleSetPointDown.WhenPressed(new ElevatorSetPoint(2));
+    m_eleSetPointUp.WhenPressed(new ElevatorSetPoint(GetLevel(1)));
+    m_eleSetPointDown.WhenPressed(new ElevatorSetPoint(GetLevel(-1)));
 
     m_intakeOpen.WhenPressed(new IntakeCollect());
     m_intakeClose.WhenPressed(new IntakeRelease());
@@ -35,7 +35,6 @@ OI::OI() {
     m_catherClose.WhenPressed(new CatcherRelease());
 
     m_comprosserOpen.WhenPressed(new ComprosserSetPosition());
-    
 }
 
 frc::Joystick& OI::GetJoystickA() {
@@ -44,4 +43,14 @@ frc::Joystick& OI::GetJoystickA() {
 
 frc::Joystick& OI::GetJoystickB() {
     return m_joystickB;
+}
+
+int OI::GetLevel(int move) {
+    static int level = 0;
+    level += move;
+    if (level > 2)
+        level = 2;
+    else if (level < 0)
+        level = 0;
+    return level;
 }
