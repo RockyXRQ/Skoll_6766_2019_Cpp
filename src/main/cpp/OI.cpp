@@ -23,8 +23,8 @@
 OI::OI() {
     m_eleUp.WhenPressed(new ElevatorUp());
     m_eleDown.WhenPressed(new ElevatorDown());
-    m_eleSetPointUp.WhenPressed(new ElevatorSetPoint(GetLevel(1)));
-    m_eleSetPointDown.WhenPressed(new ElevatorSetPoint(GetLevel(-1)));
+    m_eleSetPointUp.WhenPressed(new ElevatorSetPoint(OI::GetLevel(1)));
+    m_eleSetPointDown.WhenPressed(new ElevatorSetPoint(OI::GetLevel(-1)));
 
     m_intakeOpen.WhenPressed(new IntakeCollect());
     m_intakeClose.WhenPressed(new IntakeRelease());
