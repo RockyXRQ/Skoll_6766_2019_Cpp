@@ -11,11 +11,11 @@
 #include "Robot.h"
 
 class ComprosserSetPosition : public frc::Command {
- public:
-  ComprosserSetPosition();
-  void Initialize() override;
-  void Execute() override;
-  bool IsFinished() override;
-  void End() override;
-  void Interrupted() override;
+   public:
+    ComprosserSetPosition();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
 };

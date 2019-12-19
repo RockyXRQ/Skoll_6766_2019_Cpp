@@ -11,11 +11,11 @@
 #include "Robot.h"
 
 class IntakeDown : public frc::Command {
- public:
-  IntakeDown();
-  void Initialize() override;
-  void Execute() override;
-  bool IsFinished() override;
-  void End() override;
-  void Interrupted() override;
+   public:
+    IntakeDown();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
 };

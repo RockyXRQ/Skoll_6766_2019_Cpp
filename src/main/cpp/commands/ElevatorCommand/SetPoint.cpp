@@ -7,7 +7,8 @@
 
 #include "commands/ElevatorCommand/SetPoint.h"
 
-ElevatorSetPoint::ElevatorSetPoint(register double point) : frc::Command("ElevatorSetPoint") {
+ElevatorSetPoint::ElevatorSetPoint(register double point)
+    : frc::Command("ElevatorSetPoint") {
     Requires(&Robot::elevator);
     m_point = point;
 }
