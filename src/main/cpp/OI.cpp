@@ -45,7 +45,7 @@ frc::Joystick& OI::GetJoystickB() {
     return m_joystickB;
 }
 
-int OI::GetLevel(int move) {
+inline int OI::GetLevel(int move) {
     static int level = 0;
     level += move;
     if (level > 2)

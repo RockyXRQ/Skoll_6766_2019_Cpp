@@ -17,7 +17,7 @@ class OI {
     frc::Joystick& GetJoystickA();
     frc::Joystick& GetJoystickB();
 
-    int GetLevel(int);
+    inline int GetLevel(int);
 
    private:
     frc::Joystick m_joystickA{0};
