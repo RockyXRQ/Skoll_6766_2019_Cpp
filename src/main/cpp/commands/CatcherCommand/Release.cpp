@@ -8,14 +8,14 @@
 #include "commands/CatcherCommand/Release.h"
 
 CatcherRelease::CatcherRelease() : frc::Command("CatcherRelease") {
-    Requires(&Robot::catcher);
+    Requires(&Robot::m_catcher);
 }
 
 void CatcherRelease::Initialize() {
 }
 
 void CatcherRelease::Execute() {
-    Robot::catcher.CatcherSetPositon(frc::DoubleSolenoid::Value::kReverse);
+    Robot::m_catcher.CatcherSetPositon(frc::DoubleSolenoid::Value::kReverse);
 }
 
 bool CatcherRelease::IsFinished() {

@@ -8,14 +8,14 @@
 #include "commands/CatcherCommand/Collect.h"
 
 CatcherCollect::CatcherCollect() : frc::Command("CatcherCollect") {
-    Requires(&Robot::catcher);
+    Requires(&Robot::m_catcher);
 }
 
 void CatcherCollect::Initialize() {
 }
 
 void CatcherCollect::Execute() {
-    Robot::catcher.CatcherSetPositon(frc::DoubleSolenoid::Value::kForward);
+    Robot::m_catcher.CatcherSetPositon(frc::DoubleSolenoid::Value::kForward);
 }
 
 bool CatcherCollect::IsFinished() {

@@ -21,10 +21,10 @@
 
 class Robot : public frc::TimedRobot {
    public:
-    static Catcher catcher;
-    static Chassis chassis;
-    static Elevator elevator;
-    static Intake intake;
+    static Catcher m_catcher;
+    static Chassis m_chassis;
+    static Elevator m_elevator;
+    static Intake m_intake;
     static OI m_oi;
 
    private:

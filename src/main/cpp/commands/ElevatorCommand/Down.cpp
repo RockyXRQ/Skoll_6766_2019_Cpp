@@ -8,15 +8,15 @@
 #include "commands/ElevatorCommand/Down.h"
 
 ElevatorDown::ElevatorDown() : frc::Command("ElevaotrDown") {
-    Requires(&Robot::elevator);
+    Requires(&Robot::m_elevator);
 }
 
 void ElevatorDown::Initialize() {
-    Robot::elevator.Disable();
+    Robot::m_elevator.Disable();
 }
 
 void ElevatorDown::Execute() {
-    Robot::elevator.UsePIDOutput(-1);
+    Robot::m_elevator.UsePIDOutput(-1);
 }
 
 bool ElevatorDown::IsFinished() {
@@ -24,7 +24,7 @@ bool ElevatorDown::IsFinished() {
 }
 
 void ElevatorDown::End() {
-    Robot::elevator.UsePIDOutput(0);
+    Robot::m_elevator.UsePIDOutput(0);
 }
 
 void ElevatorDown::Interrupted() {

@@ -8,15 +8,15 @@
 #include "commands/ElevatorCommand/Up.h"
 
 ElevatorUp::ElevatorUp() : frc::Command("ElevatorUp") {
-    Requires(&Robot::elevator);
+    Requires(&Robot::m_elevator);
 }
 
 void ElevatorUp::Initialize() {
-    Robot::elevator.Disable();
+    Robot::m_elevator.Disable();
 }
 
 void ElevatorUp::Execute() {
-    Robot::elevator.UsePIDOutput(1);
+    Robot::m_elevator.UsePIDOutput(1);
 }
 
 bool ElevatorUp::IsFinished() {
@@ -24,7 +24,7 @@ bool ElevatorUp::IsFinished() {
 }
 
 void ElevatorUp::End() {
-    Robot::elevator.UsePIDOutput(0);
+    Robot::m_elevator.UsePIDOutput(0);
 }
 
 void ElevatorUp::Interrupted() {

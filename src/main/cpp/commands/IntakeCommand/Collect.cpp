@@ -8,14 +8,14 @@
 #include "commands/IntakeCommand/Collect.h"
 
 IntakeCollect::IntakeCollect() : frc::Command("IntakeCollect") {
-    Requires(&Robot::intake);
+    Requires(&Robot::m_intake);
 }
 
 void IntakeCollect::Initialize() {
 }
 
 void IntakeCollect::Execute() {
-    Robot::intake.Spin(1);
+    Robot::m_intake.Spin(1);
 }
 
 bool IntakeCollect::IsFinished() {
@@ -23,7 +23,7 @@ bool IntakeCollect::IsFinished() {
 }
 
 void IntakeCollect::End() {
-    Robot::intake.Spin(0);
+    Robot::m_intake.Spin(0);
 }
 
 void IntakeCollect::Interrupted() {

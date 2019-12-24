@@ -8,7 +8,7 @@
 #include "commands/IntakeCommand/Up.h"
 
 IntakeUp::IntakeUp() : frc::Command("IntakeUp") {
-    Requires(&Robot::intake);
+    Requires(&Robot::m_intake);
     SetTimeout(0.5);
 }
 
@@ -16,7 +16,7 @@ void IntakeUp::Initialize() {
 }
 
 void IntakeUp::Execute() {
-    Robot::intake.Nodd(1);
+    Robot::m_intake.Nodd(1);
 }
 
 bool IntakeUp::IsFinished() {
@@ -24,7 +24,7 @@ bool IntakeUp::IsFinished() {
 }
 
 void IntakeUp::End() {
-    Robot::intake.Nodd(0);
+    Robot::m_intake.Nodd(0);
 }
 
 void IntakeUp::Interrupted() {

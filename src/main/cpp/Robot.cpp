@@ -11,16 +11,16 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 OI Robot::m_oi;
-Catcher Robot::catcher;
-Chassis Robot::chassis;
-Elevator Robot::elevator;
-Intake Robot::intake;
+Catcher Robot::m_catcher;
+Chassis Robot::m_chassis;
+Elevator Robot::m_elevator;
+Intake Robot::m_intake;
 
 void Robot::RobotInit() {
-    frc::SmartDashboard::PutData(&chassis);
-    frc::SmartDashboard::PutData(&catcher);
-    frc::SmartDashboard::PutData(&elevator);
-    frc::SmartDashboard::PutData(&intake);
+    frc::SmartDashboard::PutData(&m_chassis);
+    frc::SmartDashboard::PutData(&m_catcher);
+    frc::SmartDashboard::PutData(&m_elevator);
+    frc::SmartDashboard::PutData(&m_intake);
 
     frc::CameraServer::GetInstance()->StartAutomaticCapture(0);
     frc::CameraServer::GetInstance()->StartAutomaticCapture(1);

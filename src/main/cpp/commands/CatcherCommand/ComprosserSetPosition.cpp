@@ -9,14 +9,14 @@
 
 ComprosserSetPosition::ComprosserSetPosition()
     : frc::Command("ComprosserSetPosition") {
-    Requires(&Robot::catcher);
+    Requires(&Robot::m_catcher);
 }
 
 void ComprosserSetPosition::Initialize() {
 }
 
 void ComprosserSetPosition::Execute() {
-    Robot::catcher.CompressorSetPostion(true);
+    Robot::m_catcher.CompressorSetPostion(true);
 }
 
 bool ComprosserSetPosition::IsFinished() {
@@ -24,7 +24,7 @@ bool ComprosserSetPosition::IsFinished() {
 }
 
 void ComprosserSetPosition::End() {
-    Robot::catcher.CompressorSetPostion(false);
+    Robot::m_catcher.CompressorSetPostion(false);
 }
 
 void ComprosserSetPosition::Interrupted() {

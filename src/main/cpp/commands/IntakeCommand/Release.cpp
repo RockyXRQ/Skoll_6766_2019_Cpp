@@ -8,14 +8,14 @@
 #include "commands/IntakeCommand/Release.h"
 
 IntakeRelease::IntakeRelease() : frc::Command("IntakeRelease") {
-    Requires(&Robot::intake);
+    Requires(&Robot::m_intake);
 }
 
 void IntakeRelease::Initialize() {
 }
 
 void IntakeRelease::Execute() {
-    Robot::intake.Spin(-1);
+    Robot::m_intake.Spin(-1);
 }
 
 bool IntakeRelease::IsFinished() {
@@ -23,7 +23,7 @@ bool IntakeRelease::IsFinished() {
 }
 
 void IntakeRelease::End() {
-    Robot::intake.Spin(0);
+    Robot::m_intake.Spin(0);
 }
 
 void IntakeRelease::Interrupted() {

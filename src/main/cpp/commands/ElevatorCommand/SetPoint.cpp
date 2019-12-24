@@ -9,20 +9,20 @@
 
 ElevatorSetPoint::ElevatorSetPoint(register double point)
     : frc::Command("ElevatorSetPoint") {
-    Requires(&Robot::elevator);
+    Requires(&Robot::m_elevator);
     m_point = point;
 }
 
 void ElevatorSetPoint::Initialize() {
-    Robot::elevator.SetSetpoint(m_point);
-    Robot::elevator.Enable();
+    Robot::m_elevator.SetSetpoint(m_point);
+    Robot::m_elevator.Enable();
 }
 
 void ElevatorSetPoint::Execute() {
 }
 
 bool ElevatorSetPoint::IsFinished() {
-    return Robot::elevator.OnTarget();
+    return Robot::m_elevator.OnTarget();
 }
 
 void ElevatorSetPoint::End() {

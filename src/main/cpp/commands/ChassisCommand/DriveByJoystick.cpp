@@ -8,7 +8,7 @@
 #include "commands/ChassisCommand/DriveByJoystick.h"
 
 DriveByJoystick::DriveByJoystick() : frc::Command("DriveByJoystick") {
-    Requires(&Robot::chassis);
+    Requires(&Robot::m_chassis);
 }
 
 void DriveByJoystick::Initialize() {
@@ -16,7 +16,7 @@ void DriveByJoystick::Initialize() {
 
 void DriveByJoystick::Execute() {
     auto& joystick = Robot::m_oi.GetJoystickA();
-    Robot::chassis.Drive(-joystick.GetY(), -joystick.GetRawAxis(4));
+    Robot::m_chassis.Drive(-joystick.GetY(), -joystick.GetRawAxis(4));
 }
 
 bool DriveByJoystick::IsFinished() {
@@ -24,7 +24,7 @@ bool DriveByJoystick::IsFinished() {
 }
 
 void DriveByJoystick::End() {
-    Robot::chassis.Drive(0, 0);
+    Robot::m_chassis.Drive(0, 0);
 }
 
 void DriveByJoystick::Interrupted() {
