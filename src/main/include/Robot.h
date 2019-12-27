@@ -17,6 +17,8 @@
 #include "subsystems/Elevator.h"
 #include "subsystems/Intake.h"
 
+#include "commands/MainCommandGruop.h"
+
 #include "OI.h"
 
 class Robot : public frc::TimedRobot {
@@ -26,6 +28,7 @@ class Robot : public frc::TimedRobot {
     static Elevator m_elevator;
     static Intake m_intake;
     static OI m_oi;
+    static MainCommandGruop m_mainCommandGroup;
 
    private:
     void RobotInit() override;

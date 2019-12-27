@@ -16,6 +16,8 @@ Chassis Robot::m_chassis;
 Elevator Robot::m_elevator;
 Intake Robot::m_intake;
 
+MainCommandGruop Robot::m_mainCommandGroup;
+
 void Robot::RobotInit() {
     frc::SmartDashboard::PutData(&m_chassis);
     frc::SmartDashboard::PutData(&m_catcher);
@@ -27,6 +29,7 @@ void Robot::RobotInit() {
 }
 
 void Robot::AutonomousInit() {
+    m_mainCommandGroup.Start();
 }
 
 void Robot::AutonomousPeriodic() {
@@ -34,6 +37,8 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
+    frc::Scheduler::GetInstance()->RemoveAll();
+    m_mainCommandGroup.Start();
 }
 
 void Robot::TeleopPeriodic() {
